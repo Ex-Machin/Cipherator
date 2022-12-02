@@ -1,5 +1,7 @@
 package com.project.cipherator;
+import java.util.Arrays;
 import java.util.Scanner;
+import java.lang.reflect.Field;
 
 public class Cipherator {
     String A = "m";
@@ -69,16 +71,31 @@ public class Cipherator {
     String z = "P";
     String ź = "Ł";
     String ż = "Ń";
+}
 
-    public static void main(String[] args) {
-        Cipherator cipherator = new Cipherator();
+class Test {
+        public static void main(String[] args) throws Exception {
+            Cipherator cipherator = new Cipherator();
 
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Wprowadz co, chcesz zasyfrować");
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Wprowadz co, chcesz zasyfrować");
 
-        String stringToEncode = scan.nextLine();
+            String stringToEncode = scan.nextLine();
 
 
-        System.out.println(cipherator.x); //-> Przyklad jak dostać symbol
-    }
+            //Encoding
+            for (int i = 0; i < stringToEncode.length(); i++) {
+                char currentChar = stringToEncode.charAt(i);
+
+                try {
+                    Class cls = cipherator.getClass();
+                    Field field = cls.getDeclaredField(String.valueOf(currentChar));
+
+                    System.out.print(field.get(cipherator));
+
+                } catch(Exception e) {
+                    System.out.println(e.toString());
+                }
+            }
+        }
 }
