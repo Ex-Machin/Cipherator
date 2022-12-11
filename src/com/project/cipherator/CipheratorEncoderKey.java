@@ -1,0 +1,56 @@
+package com.project.cipherator;
+
+public class CipheratorEncoderKey {
+    String A = "m";
+    String B = "b";
+    String b = "v";
+    String C = "c";
+    String D = "z";
+    String E = "a";
+    String F = "d";
+    String G = "f";
+    String H = "g";
+    String I = "h";
+    String J = "j";
+    String K = "k";
+    String L = "l";
+    String M = "o";
+    String N = "i";
+    String O = "y";
+    String P = "r";
+    String Q = "e";
+    String R = "w";
+    String S = "q";
+    String T = "ś";
+    String U = "ę";
+    String V = "ó";
+    String W = "ń";
+    String c = "Q";
+    String d = "Z";
+    String e = "W";
+    String f = "X";
+    String g = "E";
+    String h = "D";
+    String i = "C";
+    String j = "R";
+    String k = "F";
+    String l = "V";
+    String m = "G";
+    String n = "B";
+    String o = "H";
+    String p = "Y";
+    String q = "H";
+    String r = "N";
+    String s = "U";
+    String t = "M";
+    String u = "I";
+    String v = "K";
+    String w = "M";
+    String x = "O";
+    String y = "L";
+    String z = "P";
+
+    //String X = "1";
+    //String Y = "2";
+    //String Z = "3";
+}
