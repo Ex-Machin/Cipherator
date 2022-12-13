@@ -8,45 +8,71 @@ class Test {
             CipheratorEncoderKey cipheratorEncoderKey = new CipheratorEncoderKey();
             CipheratorDecoderKey cipheratorDecoderKey = new CipheratorDecoderKey();
 
+            Scanner scanChoice = new Scanner(System.in);
+            System.out.println("Co chcesz zrobić? Wybierz jedną z opcji: ");
+            System.out.println("1. Zaszyfrowanie");
+            System.out.println("2. Odszyfrowanie");
 
-            Scanner scan = new Scanner(System.in);
-            System.out.println("Wprowadz co, chcesz zasyfrować");
+            String choice= scanChoice.nextLine();
 
-            String stringToEncode = scan.nextLine();
+            System.out.println("Wybrano opcję: "+ choice + " zatem ");
 
-            //Encoding
-            for (int i = 0; i < stringToEncode.length(); i++) {
-                char currentChar = stringToEncode.charAt(i);
+            if (choice.equals("1")) {
 
-                try {
-                    Class cls = cipheratorEncoderKey.getClass();
-                    Field field = cls.getDeclaredField(String.valueOf(currentChar));
+                Scanner scan = new Scanner(System.in);
+                System.out.println("Wprowadz co, chcesz zasyfrować");
 
-                    System.out.print(field.get(cipheratorEncoderKey));
+                String stringToEncode = scan.nextLine();
 
-                } catch(Exception e) {
-                    System.out.println(e.toString());
+
+                //Encoding
+                for (int i = 0; i < stringToEncode.length(); i++) {
+                    char currentChar = stringToEncode.charAt(i);
+                    if (currentChar == ' ') {
+                        System.out.print(" ");
+                        continue;
+                    }
+                    try {
+                        Class cls = cipheratorEncoderKey.getClass();
+                        Field field = cls.getDeclaredField(String.valueOf(currentChar));
+
+                        System.out.print(field.get(cipheratorEncoderKey));
+
+                    } catch (Exception e) {
+                        System.out.println(e.toString());
+                    }
                 }
             }
-            System.out.println("");
-            System.out.println("Wprowadz co, chcesz decodować");
+            else if (choice.equals("2")) {
+                Scanner scan = new Scanner(System.in);
+                System.out.println("");
+                System.out.println("Wprowadz co, chcesz decodować");
 
-            String stringToDecode = scan.nextLine();
+                String stringToDecode = scan.nextLine();
 
-            //Decoding
+                //Decoding
 
-            for (int i = 0; i < stringToDecode.length(); i++) {
-                char currentChar = stringToDecode.charAt(i);
+                for (int i = 0; i < stringToDecode.length(); i++) {
+                    char currentChar = stringToDecode.charAt(i);
+                    if (currentChar == ' ') {
+                        System.out.print(" ");
+                        continue;
+                    }
+                    try {
+                        Class cls = cipheratorDecoderKey.getClass();
+                        Field field = cls.getDeclaredField(String.valueOf(currentChar));
 
-                try {
-                    Class cls = cipheratorDecoderKey.getClass();
-                    Field field = cls.getDeclaredField(String.valueOf(currentChar));
 
-                    System.out.print(field.get(cipheratorDecoderKey));
 
-                } catch(Exception e) {
-                    System.out.println(e.toString());
+                        System.out.print(field.get(cipheratorDecoderKey));
+
+                    } catch (Exception e) {
+                        System.out.println(e.toString());
+                    }
                 }
+            }
+            else {
+                System.out.println("Błędny wybór");
             }
         }
 }
