@@ -7,11 +7,16 @@ class Test {
         public static void main(String[] args) throws Exception {
             CipheratorEncoderKey cipheratorEncoderKey = new CipheratorEncoderKey();
             CipheratorDecoderKey cipheratorDecoderKey = new CipheratorDecoderKey();
+            boolean exit = false;
+
+            while(exit == false) {
 
             Scanner scanChoice = new Scanner(System.in);
+            System.out.println("");
             System.out.println("Co chcesz zrobić? Wybierz jedną z opcji: ");
             System.out.println("1. Zaszyfrowanie");
             System.out.println("2. Odszyfrowanie");
+            System.out.println("3. Wyjscie");
 
             String choice= scanChoice.nextLine();
 
@@ -71,8 +76,12 @@ class Test {
                     }
                 }
             }
+            else if (choice.equals("3")) {
+                exit = true;
+            }
             else {
                 System.out.println("Błędny wybór");
             }
+        }
         }
 }
